@@ -1,0 +1,3 @@
+[mysqld]
+datadir=/mnt/data/mysql13316
+user=root

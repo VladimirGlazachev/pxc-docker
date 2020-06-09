@@ -1,0 +1,7 @@
+docker run -d   -e MYSQL_ROOT_PASSWORD=password   -e CLUSTER_NAME=kworkpxc   --name=node1   --net=pxc-network -v /root/pxc-docker-test/config:/etc/percona-xtradb-cluster.conf.d -v /mnt/data/mysql13316:/mnt/data/mysql13316   -p 3306:3306 percona/percona-xtradb-cluster:5.7
+
+DOCKER HOST NETWORK
+docker run -d   -e MYSQL_ROOT_PASSWORD=password   -e CLUSTER_NAME=kworkpxc   --name=node1 --network=host   -v /root/pxc-docker-test/config:/etc/percona-xtradb-cluster.conf.d -v /mnt/data/mysql13316:/mnt/data/mysql13316   percona/percona-xtradb-cluster:5.7
+
+DOCKER HOST NETWORK SECOND NODE
+docker run -d   -e MYSQL_ROOT_PASSWORD=password   -e CLUSTER_NAME=kworkpxc -e CLUSTER_JOIN=ip_of_fnode   --name=node2 --network=host   -v /root/pxc-docker-test/config:/etc/percona-xtradb-cluster.conf.d -v /mnt/data/mysql13316:/mnt/data/mysql13316   percona/percona-xtradb-cluster:5.7
